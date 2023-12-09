@@ -3,17 +3,27 @@ const fs = require("fs");
 const { json } = require("stream/consumers");
 const modelo = {
   fileRoute: path.join(__dirname, "../json/products.json"),
+  //read all
   findAll: () => {
     const jsonData = fs.readFileSync(modelo.fileRoute);
     const products = JSON.parse(jsonData);
     return products;
   },
+  filterByTitle: (title) => {
+    const products = modelo.findAll();
+    const selectedProducts = products.filter(
+      (products) => products.title === title
+    );
+    return selectedProducts;
+  },
+  //read one
   findById: (id) => {
     const product = modelo.findAll();
     const selectedProduct = product.find((product) => product.id == id);
 
     return selectedProduct;
   },
+  //create one
   createProduct: (bodyData) => {
     let products = modelo.findAll();
     const lastProdId = products[products.length - 1].id;
@@ -23,6 +33,7 @@ const modelo = {
     fs.writeFileSync(modelo.fileRoute, jsonData, "utf-8");
     return newProduct;
   },
+  //delete
   destroy: (id) => {
     let products = modelo.findAll();
     products = products.filter(
@@ -32,6 +43,7 @@ const modelo = {
     const jsonData = JSON.stringify(products);
     fs.writeFileSync(modelo.fileRoute, jsonData, "utf-8");
   },
+  //update
   updateProduct: (updateProduct) => {
     //BUSCAR ARRAY DE PRODUCTOS YA EXISTENTES
     //CONSEGUIR EL INDICE DEL ARRAY EN EL QUE ESTA GUARDADO EL PRODUCTO

@@ -17,6 +17,7 @@
     <h2>
         <%= products.price %>
     </h2>
+    <img src="/images/products/<%=products.img %>" alt="">
     <a href="/products/<%= products.id%>/edit"><button>Editar</button></a>
 
     <form action="/products/<%=products.id%>/delete?_method=DELETE" method="post">

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+    <h1>Register</h1><a href="/products">Home</a><br><a href="/user/login">Iniciar sesion</a>
+    <h3>
+        <%=locals.errors %>
+    </h3>
+    <form class="form" action="/user/register" method="post">
+        <input type="text" name="name" placeholder="name">
+        <label for="email">Ingrese un email</label>
+        <input type="email" name="email" placeholder="email">
+        <label for="password">Ingrese una contrasenia.</label>
+        <input type="password" name="password" placeholder="password">
+        <input id="submit" type="submit" value="Registrarse">
+    </form>
+</body>
+
+</html>

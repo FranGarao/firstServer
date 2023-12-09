@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+    <h1>Iniciar sesion</h1><a href="/products">Home</a><br><a href="/user/register">Registrarse</a>
+    <h3 id="errors">
+        <%=errors %>
+    </h3>
+    <form class="form" action="/user/login" method="post">
+        <label for="email">Ingrese un email</label>
+        <input type="email" name="email" placeholder="email">
+        <label for="password">Ingrese una contrasenia.</label>
+        <input type="password" name="password" placeholder="password">
+        <div id="remember-session">
+            <label for="remember">Mantener sesion iniciada</label>
+            <input type="checkbox" name="remember">
+        </div>
+        <input id="submit" type="submit" value="Iniciar sesion">
+    </form>
+    </form>
+</body>
+
+</html>

@@ -7,11 +7,14 @@
     <title>Document</title>
 </head>
 
+
 <body>
+    <!-- ESTO INDICA QUE EL FORM TAMBIEN VA A PODER ENVIAR ARCHIVOS -->
     <form action="/products" method="post" enctype="multipart/form-data">
+
         <input type="text" name="title" placeholder="Title">
         <input type="text" name="price" placeholder="999">
-        <input type="file">
+        <input type="file" multiple name="img">
         <input type="submit">
     </form>
 </body>

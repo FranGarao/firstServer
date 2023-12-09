@@ -10,16 +10,29 @@
 
 <body>
     <header><%- include('./partials/navbar.ejs') %></header>
-    <h1>Estas viendo la lista de productos</h1>
-    <a href="/products/create">Crea tu producto!</a>
-    <% products.forEach(product=> { %>
-        <h2>Nombre: <%=product.title%>
-        </h2>
-        <h3>Price: $<%=product.price%>
-        </h3>
-        <h4>Con el id <%=product.id%>
-        </h4> <a href="/products/<%=product.id%>/detail"><button>Ver mas</button></a><br><br>
-        <% }) %>
+
+    <% if (user) { %>
+        <h1>Bienvenido <%= user.name %>!</h1>
+        <h2><a href="/user/logout">Cerrar Sesion
+            </a></h2>
+        <% }else {%>
+            <h3><a href="/user/register">Registrate aca</a></h3>
+            <h3><a href="/user/login">Inicia sesion aca</a></h3>
+            <a href="/products/create">Crea tu producto!</a>
+            <% } %>
+
+
+                <h2>Estas viendo la lista de productos</h2>
+                <% products.forEach(product=> { %>
+                    <h2>Nombre: <%=product.title%>
+                    </h2>
+                    <h3>Price: $<%=product.price%>
+                    </h3>
+                    <h4>Con el id <%=product.id%>
+                    </h4> <a href="/products/<%=product.id%>/detail"><button>Ver mas</button></a><br><br>
+                    <% }) %>
+
+
 </body>
 
 </html>
